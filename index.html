@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='app'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body ng-controller="quoteCtrl">
+        <input type="text" ng-model="narrow.text" placeholder="Filter Quote">
+        <input type="text" ng-model="narrow.author" placeholder="Filter Author">
+        <div>
+          <hr>
+          <input type="text" ng-model="newQuote.text" placeholder="New Quote" >
+          <input type="text" ng-model="newQuote.author" placeholder="New Author" >
+        
+        <button type="button" name="button" ng-click="addQuote(newQuote)">Submit</button>
+    </div>
+<div ng-repeat="quote in quotes | filter: narrow"><br>
+{{quote.text}} &nbsp&nbsp {{quote.author}}&nbsp&nbsp&nbsp&nbsp
+<button type="button" name="button" ng-click="deleteQuote($index)"> Delete </button>
+<hr>
+</div>
+<br>
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+<script src="app.js"></script>
+<script src="ctrl.js"></script>
+<script src="service.js"></script>
+
+</body>
+</html>
